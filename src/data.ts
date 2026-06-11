@@ -359,12 +359,12 @@ export const SKILL_CATEGORIES = [
     name: "DevOps & Cloud",
     skills: [
       { name: "Docker", level: 95 },
-      { name: "Azure Services", level: 85 },
-      { name: "AWS Lambda", level: 90 },
-      { name: "Jenkins Pipelines", level: 88 },
+      { name: "Kubernetes", level: 95 },
+      { name: "Azure", level: 85 },
+      { name: "AWS", level: 90 },
       { name: "Terraform", level: 80 },
-      { name: "GitHub Actions", level: 92 },
-      { name: "Bash / CLI Scripting", level: 95 }
+      { name: "Gcloud", level: 92 },
+      { name: "Linux", level: 95 }
     ]
   },
   {
@@ -373,7 +373,6 @@ export const SKILL_CATEGORIES = [
       { name: "Angular", level: 88 },
       { name: "React", level: 85 },
       { name: "TypeScript", level: 90 },
-      { name: "JavaScript (ES6+)", level: 92 },
       { name: "Tailwind CSS", level: 95 }
     ]
   },
@@ -390,7 +389,18 @@ export const SKILL_CATEGORIES = [
   {
     name: "Tools & Methodologies",
     skills: [
-      { name: "Git / Version Control", level: 95 },
+      { name: "Git", level: 95 },
+      { name: "Bitbucket", level: 95 },
+      { name: "Postman API", level: 92 },
+      { name: "Cloud Monitoring", level: 88 },
+      { name: "ATS Optimization", level: 85 }
+    ]
+  },
+  {
+    name: "Languages",
+    skills: [
+      { name: "Git", level: 95 },
+      { name: "Bitbucket", level: 95 },
       { name: "Postman API", level: 92 },
       { name: "Cloud Monitoring", level: 88 },
       { name: "ATS Optimization", level: 85 }
