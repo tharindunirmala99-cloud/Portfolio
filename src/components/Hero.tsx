@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "motion/react";
 import { ArrowRight, Code, Shield, Terminal, ArrowDown, ExternalLink } from "lucide-react";
 import { PERSONAL_INFO, CORE_STATS } from "../data";
+import heroPortrait from "../assets/images/tharindu_portrait_1781098894417.png";
 
 export default function Hero() {
   const scrollToSection = (id: string) => {
@@ -129,7 +130,7 @@ export default function Hero() {
               className="relative w-full max-w-[360px] aspect-square rounded-lg overflow-hidden shadow-sm border border-slate-200 bg-slate-50"
             >
               <img
-                src="/src/assets/images/tharindu_portrait_1781098894417.png"
+                src={heroPortrait}
                 alt="Tharindu Godage SRE Illustration"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover select-none"
