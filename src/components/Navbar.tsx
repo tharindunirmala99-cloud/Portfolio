@@ -1,8 +1,12 @@
 import React, { useState, useEffect } from "react";
-import { Menu, X, ArrowUpRight, CloudLightning } from "lucide-react";
-import { PERSONAL_INFO } from "../data";
+import { Menu, X, Moon, Sun } from "lucide-react";
 
-export default function Navbar() {
+interface NavbarProps {
+  theme: "light" | "dark";
+  onToggleTheme: () => void;
+}
+
+export default function Navbar({ theme, onToggleTheme }: NavbarProps) {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
@@ -103,22 +107,39 @@ export default function Navbar() {
           </nav>
 
           {/* CTA Print Button */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-3">
+            <button
+              type="button"
+              onClick={onToggleTheme}
+              className="inline-flex items-center gap-1 rounded-lg border border-slate-200 bg-white px-3 py-1.5 text-[10px] font-bold uppercase tracking-wider text-slate-700 transition hover:bg-slate-50 focus:outline-none dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800"
+              aria-label="Toggle color theme"
+            >
+              {theme === "dark" ? <Sun className="h-3.5 w-3.5" /> : <Moon className="h-3.5 w-3.5" />}
+              {theme === "dark" ? "Light" : "Dark"}
+            </button>
             <button
               id="nav-cta-contact"
               onClick={() => window.print()}
-              className="px-4 py-1.5 border border-slate-200 text-slate-700 text-[10px] uppercase font-bold rounded-lg font-mono hover:bg-slate-50 transition-all cursor-pointer focus:outline-none"
+              className="px-4 py-1.5 border border-slate-200 text-slate-700 text-[10px] uppercase font-bold rounded-lg font-mono hover:bg-slate-50 transition-all cursor-pointer focus:outline-none dark:border-slate-700 dark:bg-slate-900 dark:text-slate-100 dark:hover:bg-slate-800"
             >
               Print CV
             </button>
           </div>
 
           {/* Mobile Menu Trigger */}
-          <div className="flex items-center gap-3 md:hidden">
+          <div className="flex items-center gap-2 md:hidden">
+            <button
+              type="button"
+              onClick={onToggleTheme}
+              className="p-2 rounded-lg text-slate-700 hover:bg-slate-50 focus:outline-none dark:text-slate-100 dark:hover:bg-slate-800"
+              aria-label="Toggle color theme"
+            >
+              {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+            </button>
             <button
               id="mobile-menu-toggle"
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2 rounded-lg text-slate-700 hover:bg-slate-50 focus:outline-none"
+              className="p-2 rounded-lg text-slate-700 hover:bg-slate-50 focus:outline-none dark:text-slate-100 dark:hover:bg-slate-800"
               aria-label="Toggle Menu"
             >
               {isOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}

@@ -1,10 +1,36 @@
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { motion } from "motion/react";
-import { ArrowRight, Code, Shield, Terminal, ArrowDown, ExternalLink } from "lucide-react";
+import { ArrowRight, ArrowDown, ExternalLink } from "lucide-react";
 import { PERSONAL_INFO, CORE_STATS } from "../data";
-import heroPortrait from "../assets/images/tharindu_portrait_1781098894417.png";
+
+const heroImages = Object.values(
+  import.meta.glob("../assets/images/Hero/*.{jpg,jpeg,png,webp}", {
+    eager: true,
+    import: "default",
+  }) as Record<string, string>
+) as string[];
 
 export default function Hero() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [imageOrder, setImageOrder] = useState<string[]>([]);
+
+  useEffect(() => {
+    const shuffled = [...heroImages].sort(() => Math.random() - 0.5);
+    setImageOrder(shuffled.length ? shuffled : heroImages);
+  }, []);
+
+  useEffect(() => {
+    if (imageOrder.length < 2) return;
+
+    const timer = window.setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % imageOrder.length);
+    }, 3000);
+
+    return () => window.clearInterval(timer);
+  }, [imageOrder]);
+
+  const activeImage = imageOrder[currentImageIndex] ?? heroImages[0];
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -32,19 +58,7 @@ export default function Hero() {
           
           {/* Hero Credentials & Copy */}
           <div className="lg:col-span-7 space-y-6 text-left">
-            <motion.div
-              initial={{ opacity: 0, y: -20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="inline-flex items-center gap-2 px-3 py-1 bg-emerald-50 border border-emerald-200 rounded"
-            >
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-              <span className="text-[10px] font-bold text-emerald-700 tracking-wider uppercase font-mono">
-                Available for Site Reliability & Systems Engineering
-              </span>
-            </motion.div>
-
-            <div className="space-y-4">
+            <div className="space-y-4 mt-36">
               <motion.h1
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -127,14 +141,31 @@ export default function Hero() {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.3 }}
-              className="relative w-full max-w-[360px] aspect-square rounded-lg overflow-hidden shadow-sm border border-slate-200 bg-slate-50"
+              className="relative w-full max-w-[500px] aspect-square rounded-2xl overflow-hidden border border-slate-200 bg-slate-50 shadow-sm"
             >
-              <img
-                src={heroPortrait}
-                alt="Tharindu Godage SRE Illustration"
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover select-none"
-              />
+              {activeImage ? (
+                <img
+                  key={activeImage}
+                  src={activeImage}
+                  alt="Tharindu Godage SRE Illustration"
+                  referrerPolicy="no-referrer"
+                  className="h-full w-full object-cover select-none transition duration-700 ease-out"
+                />
+              ) : null}
+
+              {imageOrder.length > 1 ? (
+                <div className="absolute bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-black/30 px-2 py-1 backdrop-blur-sm">
+                  {imageOrder.map((_, index) => (
+                    <button
+                      key={index}
+                      type="button"
+                      aria-label={`Show hero image ${index + 1}`}
+                      onClick={() => setCurrentImageIndex(index)}
+                      className={`h-1.5 w-1.5 rounded-full transition ${index === currentImageIndex ? "bg-white" : "bg-white/50"}`}
+                    />
+                  ))}
+                </div>
+              ) : null}
             </motion.div>
           </div>
         </div>
