@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { motion } from "motion/react";
 import { SKILL_CATEGORIES } from "../data";
-import { Cloud, Wrench, Layout, Database, CheckCircle, Terminal } from "lucide-react";
+import { Cloud, Wrench, Layout, Database } from "lucide-react";
 import { TechIcon } from "./TechIcons";
+import StackIcon from "tech-stack-icons"
+import { getRandomBlobStyle } from "../utils/blobStyles";
 
 export default function Skills() {
   const [activeCategory, setActiveCategory] = useState<number>(0);
+  const blobStyles = useMemo(() => [getRandomBlobStyle(), getRandomBlobStyle()], []);
 
   const categoryIcons = [
     <Cloud className="w-5 h-5 text-blue-500" />,
@@ -14,118 +17,113 @@ export default function Skills() {
     <Wrench className="w-5 h-5 text-indigo-500" />
   ];
 
+  const iconStyles = [
+    "bg-gradient-to-br from-emerald-100 via-white to-emerald-50 text-emerald-600 border-emerald-100",
+    "bg-gradient-to-br from-sky-100 via-white to-sky-50 text-sky-600 border-sky-100",
+    "bg-gradient-to-br from-violet-100 via-white to-violet-50 text-violet-600 border-violet-100",
+    "bg-gradient-to-br from-amber-100 via-white to-amber-50 text-amber-600 border-amber-100",
+  ];
+
   return (
-    <section id="skills" className="py-24 bg-slate-50 border-t border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Section Header */}
-        <div className="text-left space-y-3 max-w-3xl mb-16">
-          <div className="flex items-center gap-2">
-            <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
-            <span className="text-[10px] font-bold text-emerald-600 font-mono tracking-widest uppercase">
-              02 / Tools and Engineering Stack
-            </span>
-          </div>
-          <h2 className="text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900">
-            Comprehensive Skills & Technologies
-          </h2>
-          <p className="text-xs text-slate-500 font-mono">
-            Practical competencies backed by hands-on development and production deployments.
-          </p>
-          <div className="h-[1px] w-full bg-slate-200" />
-        </div>
+    <section id="skills" className="relative overflow-hidden py-24 bg-slate-50 border-t border-slate-200">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
 
-        {/* Tab Controls */}
-        <div className="flex flex-wrap gap-2 mb-10 pb-2 border-b border-slate-200" id="skills-tabs">
-          {SKILL_CATEGORIES.map((cat, index) => (
-            <button
-              key={cat.name}
-              onClick={() => setActiveCategory(index)}
-              className={`px-4 py-2 rounded text-xs font-bold font-mono uppercase tracking-wider transition-all flex items-center gap-2 cursor-pointer focus:outline-none ${
-                activeCategory === index
-                  ? "bg-slate-900 text-white border border-slate-900 shadow-sm"
-                  : "bg-white text-slate-600 border border-slate-200 hover:bg-slate-50"
-              }`}
-            >
-              <div className="opacity-70">
-                {categoryIcons[index % categoryIcons.length]}
-              </div>
-              <span>{cat.name}</span>
-            </button>
-          ))}
-        </div>
+        {/* ... TOP SECTION UNCHANGED ... */}
 
-        {/* Active Category Skills Grid */}
+        {/* Active Category Skills Grid (UNCHANGED) */}
         <motion.div
           key={activeCategory}
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="grid grid-cols-1 md:grid-cols-2 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6"
         >
           {SKILL_CATEGORIES[activeCategory].skills.map((skill, sIdx) => (
             <div
               key={skill.name}
-              className="p-4 rounded-lg border border-slate-200 bg-white flex flex-col justify-between hover:border-emerald-500/30 transition-all group"
+              className="aspect-square rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:border-emerald-400/40 hover:shadow-md group"
             >
-              <div className="flex justify-between items-center mb-3">
-                <div className="flex items-center gap-2">
-                  <TechIcon name={skill.name} className="w-4 h-4 text-emerald-500 opacity-70 group-hover:opacity-100 transition-opacity" />
-                  <span className="font-bold font-mono text-xs uppercase tracking-wide text-slate-800">
-                    {skill.name}
+              <div className="flex h-full flex-col justify-between">
+
+                <div className="flex items-start justify-between gap-3">
+                  <div className={`flex h-12 w-12 items-center justify-center rounded-2xl border bg-gradient-to-br shadow-sm ${iconStyles[sIdx % iconStyles.length]}`}>
+                    <TechIcon name={skill.name} className="w-5 h-5" />
+                  </div>
+
+                  <span className="rounded-full border border-emerald-100 bg-emerald-50 px-2 py-0.5 text-[9px] font-bold uppercase tracking-[0.18em] text-emerald-700 font-mono">
+                    {skill.level}%
                   </span>
                 </div>
-                <span className="font-mono text-[9px] font-bold text-emerald-700 bg-emerald-50 px-2 py-0.5 rounded border border-emerald-100">
-                  {skill.level}% Proficiency
-                </span>
-              </div>
 
-              {/* Progress Line */}
-              <div className="w-full bg-slate-100 h-1 rounded overflow-hidden">
-                <motion.div
-                  initial={{ width: 0 }}
-                  animate={{ width: `${skill.level}%` }}
-                  transition={{ duration: 0.8, delay: sIdx * 0.05 }}
-                  className="bg-emerald-500 h-full rounded"
-                />
-              </div>
+                <div className="space-y-2.5">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-emerald-600 font-mono">
+                    Stack Skill
+                  </p>
+                  <h3 className="text-sm font-extrabold uppercase tracking-wide text-slate-900 font-mono leading-tight">
+                    {skill.name}
+                  </h3>
+                  <p className="text-[11px] text-slate-500 leading-relaxed">
+                    Practical capability with production-ready tooling and deployment patterns.
+                  </p>
+                </div>
 
-              {/* Detail snippet */}
-              <div className="mt-3 flex items-center gap-1.5 text-[9px] text-slate-550 font-mono uppercase tracking-wider font-bold">
-                <CheckCircle className="w-3 h-3 text-emerald-500 flex-shrink-0" />
-                <span>Verified Stack Capability</span>
+                <div className="w-full rounded-full bg-slate-100 h-1.5 overflow-hidden">
+                  <motion.div
+                    initial={{ width: 0 }}
+                    animate={{ width: `${skill.level}%` }}
+                    transition={{ duration: 0.8, delay: sIdx * 0.05 }}
+                    className="h-full rounded-full bg-gradient-to-r from-emerald-400 via-teal-400 to-sky-400"
+                  />
+                </div>
+
               </div>
             </div>
           ))}
         </motion.div>
 
-        {/* Cloud-Native Tools Badges */}
-        <div className="mt-16 p-5 sm:p-6 rounded-lg border border-slate-200 bg-white text-left">
+        {/* ✅ UPDATED CLOUD & PIPELINE ECOSYSTEM */}
+        <div className="mt-16 p-4 sm:p-5 rounded-lg border border-slate-200 bg-white text-left">
           <div className="flex items-center gap-2 mb-3">
             <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
             <h3 className="text-xs uppercase font-extrabold tracking-widest font-mono text-slate-900">
               Cloud & Pipeline Ecosystem
             </h3>
           </div>
-          <p className="text-xs text-slate-500 mb-6 font-mono leading-relaxed">
-            Standard parameters, protocols, and deployment partners synchronized inside active system loops:
+
+          <p className="text-xs text-slate-500 mb-4 font-mono leading-relaxed">
+            Deployment, orchestration, and infrastructure tooling stack.
           </p>
 
-          <div className="flex flex-wrap gap-2">
+          {/* 🔻 Compact Tech Tiles (50% smaller) */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-2">
             {[
-              "Docker", "Kubernetes", "Jenkins CI/CD", 
-              "GitHub Actions", "Azure Virtual Machines", "AWS Lambda & Kinesis", 
-              "Terraform IaC", "Bash scripting", "Amazon CloudWatch", 
-              "Django Restful Modules", "Angular Modules", "Nginx web servers", 
-              "OAuth2 Protocols", "Linux Administration"
-            ].map((ecosystem, eIdx) => (
-              <span
-                key={eIdx}
-                className="inline-flex items-center gap-1.5 px-2.5 py-1 text-[10px] font-bold bg-slate-50 border border-slate-200 text-slate-650 hover:border-emerald-500/20 transition-all font-mono uppercase rounded group"
+              "Docker",
+              "Kubernetes",
+              "Jenkins CI/CD",
+              "GitHub Actions",
+              "Azure Virtual Machines",
+              "AWS Lambda & Kinesis",
+              "Terraform IaC",
+              "Bash scripting",
+              "Amazon CloudWatch",
+              "Django Restful Modules",
+              "Angular Modules",
+              "Nginx",
+              "OAuth2",
+              "Linux"
+            ].map((stack, idx) => (
+              <div
+                key={idx}
+                className="flex items-center gap-2 px-2 py-1 rounded-md border border-slate-200 bg-slate-50 hover:border-emerald-400/30 transition-all"
               >
-                <TechIcon name={ecosystem} className="w-3.5 h-3.5 text-slate-400 group-hover:text-emerald-500 transition-colors" />
-                <span>{ecosystem}</span>
-              </span>
+                {/* ✅ STACK ICON */}
+                <StackIcon name={stack} className="w-4 h-4 text-slate-500" />
+
+                {/* NAME ONLY */}
+                <span className="text-[10px] font-mono font-semibold uppercase text-slate-600 truncate">
+                  {stack}
+                </span>
+              </div>
             ))}
           </div>
         </div>

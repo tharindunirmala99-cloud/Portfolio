@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { motion } from "motion/react";
 import { ArrowRight, ArrowDown, ExternalLink } from "lucide-react";
 import { PERSONAL_INFO, CORE_STATS } from "../data";
+import resumePdf from "../assets/Documents/Tharindu_Godage___Resume.pdf";
 
 const heroImages = Object.values(
   import.meta.glob("../assets/images/Hero/*.{jpg,jpeg,png,webp}", {
@@ -47,12 +48,21 @@ export default function Hero() {
     }
   };
 
-  const handlePrint = () => {
-    window.print();
+  const handleDownloadResume = () => {
+    const link = document.createElement("a");
+    link.href = resumePdf;
+    link.download = "Tharindu_Godage___Resume.pdf";
+    link.click();
   };
 
   return (
     <section id="home" className="relative min-h-screen pt-28 pb-16 flex flex-col justify-center overflow-hidden bg-white">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div className="blob blob-a" />
+        <div className="blob blob-b" />
+        <div className="blob blob-c" />
+        <div className="blob blob-d" />
+      </div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex-grow flex flex-col justify-center">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
@@ -105,7 +115,7 @@ export default function Hero() {
 
               <button
                 id="hero-download-cv-btn"
-                onClick={handlePrint}
+                onClick={handleDownloadResume}
                 className="px-5 py-2.5 text-xs font-mono font-bold uppercase tracking-wider text-slate-700 bg-white hover:bg-slate-50 border border-slate-200 rounded shadow-sm transition-all flex items-center gap-2 cursor-pointer focus:outline-none"
               >
                 Download Resume

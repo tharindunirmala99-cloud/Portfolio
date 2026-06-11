@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { motion } from "motion/react";
 import { SERVICES } from "../data";
+import { getRandomBlobStyle } from "../utils/blobStyles";
 import { Cloud, Cpu, Globe, Activity, CircleCheck } from "lucide-react";
 
 export default function Services() {
+  const blobStyles = useMemo(() => [getRandomBlobStyle(), getRandomBlobStyle()], []);
+
   const getIcon = (name: string) => {
     switch (name) {
       case "Cloud":
@@ -20,8 +23,12 @@ export default function Services() {
   };
 
   return (
-    <section id="services" className="py-24 bg-white border-t border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="services" className="relative overflow-hidden py-24 bg-white border-t border-slate-200">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div className="blob section-blob" style={blobStyles[0]} />
+        <div className="blob section-blob" style={blobStyles[1]} />
+      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-center space-y-3 max-w-2xl mx-auto mb-16">

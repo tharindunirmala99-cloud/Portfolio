@@ -1,17 +1,24 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { motion } from "motion/react";
 import { EXPERIENCES } from "../data";
 import { Calendar, MapPin, Award, CheckCircle2, ChevronRight } from "lucide-react";
 import { CompanyLogo, TechIcon } from "./TechIcons";
+import { getRandomBlobStyle } from "../utils/blobStyles";
 
 export default function Experience() {
+  const blobStyles = useMemo(() => [getRandomBlobStyle(), getRandomBlobStyle()], []);
+
   const getBadgeColors = (type: string) => {
     return "bg-emerald-500/5 dark:bg-emerald-500/10 text-emerald-650 dark:text-emerald-400 border-emerald-500/25";
   };
 
   return (
-    <section id="experience" className="py-24 bg-white border-t border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="experience" className="relative overflow-hidden py-24 bg-white border-t border-slate-200">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div className="blob section-blob" style={blobStyles[0]} />
+        <div className="blob section-blob" style={blobStyles[1]} />
+      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-left space-y-3 max-w-3xl mb-16">

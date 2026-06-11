@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { PROJECTS } from "../data";
 import { ExternalLink, Github, Monitor, Flame, Layers, Target, Terminal, ChevronDown, ChevronUp } from "lucide-react";
 import { Project } from "../types";
 import { TechIcon } from "./TechIcons";
+import { getRandomBlobStyle } from "../utils/blobStyles";
 
 export default function Projects() {
   const [filter, setFilter] = useState<string>("all");
+  const blobStyles = useMemo(() => [getRandomBlobStyle(), getRandomBlobStyle()], []);
   const [expandedProjectId, setExpandedProjectId] = useState<string | null>(null);
 
   const filteredProjects = PROJECTS.filter((prj) => {
@@ -21,8 +23,12 @@ export default function Projects() {
   };
 
   return (
-    <section id="projects" className="py-24 bg-white border-t border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="projects" className="relative overflow-hidden py-24 bg-white border-t border-slate-200">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div className="blob section-blob" style={blobStyles[0]} />
+        <div className="blob section-blob" style={blobStyles[1]} />
+      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">

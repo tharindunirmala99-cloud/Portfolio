@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { motion } from "motion/react";
 import { Shield, Sparkles, ChevronRight, Minimize, Eye, Zap } from "lucide-react";
 import { PERSONAL_INFO, PHILOSOPHY } from "../data";
+import { getRandomBlobStyle } from "../utils/blobStyles";
+import suslLogo from "../assets/images/WorkLogos/SUSL.png";
+import ifsLogo from "../assets/images/WorkLogos/IFS.png";
 
 export default function About() {
+  const blobStyles = useMemo(() => [getRandomBlobStyle(), getRandomBlobStyle()], []);
   const philosophyIcons = [
     <Shield className="w-4 h-4 text-emerald-500" />,
     <Zap className="w-4 h-4 text-emerald-500" />,
@@ -12,8 +16,12 @@ export default function About() {
   ];
 
   return (
-    <section id="about" className="py-24 bg-white border-t border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="about" className="relative overflow-hidden py-24 bg-white border-t border-slate-200">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div className="blob section-blob" style={blobStyles[0]} />
+        <div className="blob section-blob" style={blobStyles[1]} />
+      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Section Header */}
         <div className="text-left space-y-3 max-w-3xl mb-16">
@@ -44,22 +52,22 @@ export default function About() {
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 text-xs font-mono">
               <div className="p-4 rounded-lg bg-white border border-slate-200 flex items-center gap-3">
-                <div className="w-8 h-8 rounded bg-emerald-50 border border-emerald-100 flex items-center justify-center text-emerald-650 font-bold font-sans text-xs">
-                  SUSL
+                <div className="w-15 h-15 rounded  flex items-center justify-center overflow-hidden p-1">
+                  <img src={suslLogo} alt="SUSL logo" className="h-full w-full object-contain" />
                 </div>
                 <div>
-                  <p className="text-slate-400 uppercase tracking-wide text-[9px] font-bold">Academic</p>
-                  <p className="text-slate-900 font-sans font-semibold mt-0.5">SUSL Honours Degree</p>
+                  <p className="text-slate-400 uppercase tracking-wide text-[15px] font-bold">Academic</p>
+                  <p className="text-slate-900 font-sans font-semibold mt-0.5">BSc Computing and Information Systems (Hons) Degree</p>
                 </div>
               </div>
 
               <div className="p-4 rounded-lg bg-white border border-slate-200 flex items-center gap-3">
-                <div className="w-8 h-8 rounded bg-emerald-55/10 border border-emerald-100 flex items-center justify-center text-emerald-650 font-bold font-sans text-xs">
-                  CO
+                <div className="w-15 h-15 rounded  flex items-center justify-center overflow-hidden p-1">
+                  <img src={ifsLogo} alt="IFS logo" className="h-full w-full object-contain" />
                 </div>
                 <div>
-                  <p className="text-slate-400 uppercase tracking-wide text-[9px] font-bold">Specialization</p>
-                  <p className="text-slate-900 font-sans font-semibold mt-0.5">SRE & Web Architecture</p>
+                  <p className="text-slate-400 uppercase tracking-wide text-[15px] font-bold">Most Recent Work Experience</p>
+                  <p className="text-slate-900 font-sans font-semibold mt-0.5">Undergraduate Trainee DevOps</p>
                 </div>
               </div>
             </div>

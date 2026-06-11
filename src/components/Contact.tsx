@@ -1,9 +1,11 @@
-import React, { useState } from "react";
+import React, { useMemo, useState } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Mail, Phone, Linkedin, Github, Send, CheckCircle2, MessageSquare, MapPin, Copy, Star } from "lucide-react";
 import { PERSONAL_INFO, TESTIMONIALS } from "../data";
+import { getRandomBlobStyle } from "../utils/blobStyles";
 
 export default function Contact() {
+  const blobStyles = useMemo(() => [getRandomBlobStyle(), getRandomBlobStyle()], []);
   const [copiedText, setCopiedText] = useState<string | null>(null);
   const [formSubmitted, setFormSubmitted] = useState(false);
   const [formData, setFormData] = useState({
@@ -43,8 +45,12 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-white border-t border-slate-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="relative overflow-hidden py-24 bg-white border-t border-slate-200">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden="true">
+        <div className="blob section-blob" style={blobStyles[0]} />
+        <div className="blob section-blob" style={blobStyles[1]} />
+      </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
         {/* Peer Feedback Testimonials segment */}
         <div className="mb-24 pb-16 border-b border-slate-250">
