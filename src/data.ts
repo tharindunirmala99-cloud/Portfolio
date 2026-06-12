@@ -20,29 +20,30 @@ export const PERSONAL_INFO = {
 };
 
 export const CORE_STATS: StatItem[] = [
+
   {
-    value: "AWS X2",
-    label: "Certified Specialist",
-    metricDetails: "Cloud Solutions Architect & SRE Foundations",
-    impact: "Robust, secure, and cost-optimized serverless deployments."
+    value: "2+ Years",
+    label: "Professional Experience",
+    metricDetails: "Freelancing, internships, and industry projects",
+    impact: "Delivered scalable solutions across development and DevOps workflows."
   },
   {
-    value: "Docker",
-    label: "Certified Associate",
-    metricDetails: "Containerization & Microservices Pipeline Architect",
-    impact: "Reproducible developer setups and bulletproof deployments."
+    value: "10+ Projects",
+    label: "Projects Delivered",
+    metricDetails: "Web applications, warehouse systems, and restaurant platforms",
+    impact: "Built full-stack solutions with modern cloud and DevOps practices."
   },
   {
-    value: "95%+",
-    label: "Manual Effort Eliminated",
-    metricDetails: "Through DevOps Automation Scripts (Bash & Node)",
-    impact: "Faster CI/CD cycles and mistake-free release loops."
+    value: "5+ Organizations",
+    label: "Leadership & Volunteering",
+    metricDetails: "IEEE, university societies, and community initiatives",
+    impact: "Strengthened teamwork, leadership, and event management skills."
   },
   {
-    value: "10+",
-    label: "Projects Architected",
-    metricDetails: "Across Warehouse, Fintech, Education, and Career SaaS",
-    impact: "Full-stack development coupled with robust persistence structures."
+    value: "10+ Citations",
+    label: "Research Citations",
+    metricDetails: "Academic publications and research contributions",
+    impact: "Demonstrated influence and recognition within the research community."
   }
 ];
 

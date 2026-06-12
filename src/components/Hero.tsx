@@ -193,7 +193,7 @@ export default function Hero() {
               className="p-5 rounded-lg border border-slate-200 bg-white hover:border-emerald-500/30 transition-all duration-300"
             >
               <div>
-                <span className="text-2xl md:text-3xl font-bold font-mono tracking-tighter text-emerald-600">
+                <span className="text-2xl md:text-2xl font-bold font-mono tracking-tighter text-emerald-600">
                   {stat.value}
                 </span>
                 <p className="font-bold text-xs uppercase tracking-wide text-slate-800 font-mono mt-2">
