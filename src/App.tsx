@@ -10,6 +10,7 @@ import Hero from "./components/Hero";
 import About from "./components/About";
 import Skills from "./components/Skills";
 import Experience from "./components/Experience";
+import Volunteer from "./components/Volunteer";
 import Projects from "./components/Projects";
 import Credentials from "./components/Credentials";
 import Services from "./components/Services";
@@ -43,6 +44,7 @@ export default function App() {
         <About />
         <Skills />
         <Experience />
+        <Volunteer />
         <Projects />
         <Credentials />
         <Services />

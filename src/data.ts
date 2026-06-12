@@ -4,16 +4,35 @@
  */
 
 import { Project, Experience, Certification, Award, Publication, Service, StatItem } from "./types";
+import AiesecLogo from "../src/assets/images/VolunteerLogos/Aiesec.png";
+import AiesecCSLogo from "../src/assets/images/VolunteerLogos/aiesec-cs.jpg";
+import AiesecIGVPLogo from "../src/assets/images/VolunteerLogos/Aiesec-IGVP.png";
+
+import IEEESLLogo from "../src/assets/images/VolunteerLogos/ieee.svg";
+import IEEESUSLLogo from "../src/assets/images/VolunteerLogos/ieee-susl.png";
+import IEEEYPLogo from "../src/assets/images/VolunteerLogos/yp.png";
+import IEEEXtremeLogo from "../src/assets/images/VolunteerLogos/ieee-extreme.jpg";
+
+import ZeroPlasticLogo from "../src/assets/images/VolunteerLogos/zp.png";
+import G17Logo from "../src/assets/images/VolunteerLogos/g17.png";
 
 export const PERSONAL_INFO = {
   name: "Tharindu Godage",
-  title: "Site Reliability & Software/DevOps Engineer",
-  tagline: "Building Resilient Infrastructure & Automating Cloud Scale Workloads",
-  shortBio: "AWS & Docker Certified DevOps / SRE specialist and Full-Stack Developer. I architect highly secure pipelines, automate complex deployment workflows, and design robust web experiences that bridge the gap between engineering and ultimate system uptime.",
-  longBio: "I am a high-impact Software & DevOps/SRE Engineer based in Sri Lanka, passionate about optimizing performance, ensuring high availability, and creating seamless developer workflows. Guided by a philosophy of 'automation first', I eliminate repetitive ops and manual pipeline overhead. With dual competencies in modern Web frameworks (Angular, React, Django, Node.js) and SRE practices (Docker, Azure, AWS, Jenkins, Bash), I design software that is predictable, self-healing, and ready for high-performance scale.",
+  title: "Software Engineer | DevOps & Site Reliability Engineer",
+
+  tagline:
+    "Engineering Scalable Software, Cloud Infrastructure, and Reliable Developer Platforms",
+
+  shortBio:
+    "Software Engineer with expertise in Full-Stack Development, Cloud Engineering, DevOps, and Site Reliability Engineering. AWS and Docker certified, with hands-on experience building modern web applications, automating CI/CD pipelines, and designing scalable, resilient systems that deliver exceptional user experiences.",
+
+  longBio:
+    "I am a Software Engineer and DevOps/SRE practitioner based in Sri Lanka, passionate about building high-quality software and reliable cloud-native platforms. My expertise spans the entire software development lifecycle—from designing intuitive frontend experiences and developing robust backend services to automating infrastructure and optimizing production environments.\n\nWith experience in React, Angular, Django, Node.js, .NET, AWS, Azure, Docker, Kubernetes, Jenkins, and modern DevOps practices, I bridge the gap between software engineering and operations. I enjoy architecting scalable applications, streamlining development workflows, implementing CI/CD pipelines, and creating systems that are secure, maintainable, and highly available.\n\nDriven by an automation-first mindset, I focus on eliminating manual processes, improving developer productivity, and delivering software solutions that perform reliably at scale.",
+
   email: "tharindunirmala99@gmail.com",
   phone: "+94 71 548 2499",
   location: "Padukka, Western Province, Sri Lanka",
+
   linkedin: "https://www.linkedin.com/in/tharindu-godage",
   github: "https://github.com/tharindug99",
   portfolio: "https://tharindug99.github.io/myPortfolio/"
@@ -149,6 +168,99 @@ export const EXPERIENCES: Experience[] = [
     ],
     techStack: ["Banking Portals", "Financial Compliance", "Client Communications"],
     logoType: "banking"
+  }
+];
+
+export const VOLUNTEER_EXPERIENCES = [
+  {
+    organization: "IEEE Young Professionals Sri Lanka",
+    role: "Membership Coordinator",
+    duration: "Mar 2023 - Dec 2023",
+    description:
+      "Supported membership growth initiatives, engagement programs, and professional networking opportunities across Sri Lanka.",
+    logo: IEEEYPLogo,
+    category: "IEEE"
+  },
+  {
+    organization: "IEEE Xtreme",
+    role: "Campus Ambassador",
+    duration: "Mar 2023 - Dec 2023",
+    description:
+      "Promoted competitive programming activities, coordinated awareness campaigns, and increased student participation in IEEEXtreme.",
+    logo: IEEEXtremeLogo,
+    category: "IEEE"
+  },
+  {
+    organization: "IEEE Young Professionals Sri Lanka",
+    role: "Student Representative - StudPro 5.0",
+    duration: "Aug 2022 - Mar 2023",
+    description:
+      "Represented university students and facilitated professional development opportunities through the StudPro initiative.",
+    logo: IEEEYPLogo,
+    category: "IEEE"
+  },
+  {
+    organization: "IEEE Student Branch - SUSL",
+    role: "Event Coordinator",
+    duration: "Oct 2022 - Aug 2023",
+    description:
+      "Planned and executed technical workshops, competitions, and professional development events for students.",
+    logo: IEEESUSLLogo,
+    category: "IEEE"
+  },
+  {
+    organization: "G17 Global UAC",
+    role: "Designer",
+    duration: "Apr 2022 - Apr 2023",
+    description:
+      "Created branding materials, social media campaigns, and visual assets supporting youth empowerment programs.",
+    logo: G17Logo,
+    category: "Creative"
+  },
+  {
+    organization: "ZeroPlastic Community - SUSL",
+    role: "Director of PR & Operations",
+    duration: "Apr 2022 - Sep 2023",
+    description:
+      "Led public relations, community outreach, and operational planning for sustainability and environmental awareness initiatives.",
+    logo: ZeroPlasticLogo,
+    category: "Community Leadership"
+  },
+  {
+    organization: "IEEE Sri Lanka Section",
+    role: "Delegates Management Team Member - SLSAC",
+    duration: "Mar 2022 - Mar 2023",
+    description:
+      "Coordinated delegate operations and logistics for the Sri Lanka Students & Young Professionals Leadership Congress.",
+    logo: IEEESLLogo,
+    category: "IEEE"
+  },
+  {
+    organization: "AIESEC in Sabaragamuwa",
+    role: "IGVP Digital Experience & Marketing",
+    duration: "Feb 2022 - Aug 2022",
+    description:
+      "Handled digital marketing campaigns, branding initiatives, and participant engagement strategies for international volunteer programs.",
+    logo: AiesecLogo,
+    category: "Marketing"
+  },
+  {
+    organization: "AIESEC in Colombo Central",
+    role: "Organizing Committee Member - Partnership Development",
+    duration: "Oct 2021 - Dec 2021",
+    description:
+      "Managed partnership outreach and stakeholder engagement for Qualifier 1.0, contributing to event sponsorship and collaboration efforts.",
+    logo: AiesecCSLogo,
+    category: "Event Management"
+  },
+  {
+    organization: "AIESEC in Sabaragamuwa",
+    role: "OGT Team Leader",
+    duration: "May 2021 - Jan 2022",
+    description:
+      "Led outbound global talent initiatives, coordinated student engagement activities, and supported international opportunity placements.",
+    logo: AiesecLogo,
+    category: "Leadership"
   }
 ];
 

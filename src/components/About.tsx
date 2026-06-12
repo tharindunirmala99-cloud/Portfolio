@@ -47,7 +47,7 @@ export default function About() {
               {PERSONAL_INFO.longBio}
             </p>
             <p className="text-slate-600 leading-relaxed text-sm sm:text-base">
-              My core SRE training was fortified at <strong className="text-slate-900 font-semibold">IFS</strong> inside their centralized Build, Deployment, and SRE team, where I actively supported Azure resources, verified daily build stability targets, and authored automation micro-utilities that alleviated manual operational delay traps.
+              My core SRE training was fortified at <strong className="text-slate-900 font-semibold">IFS</strong> inside their centralized Build, Deployment, and SRE team, where I actively supported Azure resources, verified daily build stability targets.
             </p>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 text-xs font-mono">
@@ -97,43 +97,6 @@ export default function About() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-
-        {/* Engineering Philosophy Cards */}
-        <div className="mt-20 pt-16 border-t border-slate-200">
-          <div className="text-left space-y-3 mb-12">
-            <div className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full"></span>
-              <h3 className="text-xs uppercase font-extrabold tracking-widest font-mono text-slate-800">
-                Core Engineering Philosophy
-              </h3>
-            </div>
-            <p className="text-xs text-slate-500 max-w-xl font-mono leading-relaxed">
-              Guiding parameters I program and audit when structuring scalable pipelines.
-            </p>
-            <div className="h-[1px] w-full bg-slate-200" />
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {PHILOSOPHY.map((phil, pIndex) => (
-              <div 
-                key={pIndex}
-                className="p-5 rounded-lg border border-slate-200 bg-white hover:border-emerald-500/20 transition-all text-left flex flex-col justify-between"
-              >
-                <div className="space-y-4">
-                  <div className="w-8 h-8 rounded bg-slate-50 border border-slate-200 flex items-center justify-center">
-                    {philosophyIcons[pIndex % philosophyIcons.length]}
-                  </div>
-                  <h4 className="font-bold text-xs uppercase tracking-wide font-mono text-slate-900">
-                    {phil.title}
-                  </h4>
-                  <p className="text-xs text-slate-500 leading-relaxed font-sans">
-                    {phil.description}
-                  </p>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
 

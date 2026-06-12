@@ -68,7 +68,7 @@ export default function Hero() {
           
           {/* Hero Credentials & Copy */}
           <div className="lg:col-span-7 space-y-6 text-left">
-            <div className="space-y-4 mt-36">
+            <div className="space-y-4 mt-8">
               <motion.h1
                 initial={{ opacity: 0, y: 15 }}
                 animate={{ opacity: 1, y: 0 }}
