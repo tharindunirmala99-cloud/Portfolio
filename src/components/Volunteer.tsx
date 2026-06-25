@@ -81,11 +81,11 @@ export default function VolunteerExperience() {
                   </div>
 
                   {/* Timeline Dot */}
-                  <div className=" -right-12 sm:-right-16 top-1.5 w-20 h-20 rounded bg-white flex items-center justify-center z-10">
+                  <div className=" -right-12 sm:-right-16 top-1.5 w-20 h-20 flex items-center justify-center z-10">
                     <img
                        src={vol.logo}
                       alt={vol.organization}
-                      className="w-20 h-20 object-contain rounded-full"
+                      className="w-20 h-20 object-contain rounded-full bg-white"
                     />
                   </div>
                 </div>

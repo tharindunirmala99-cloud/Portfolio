@@ -4,6 +4,13 @@
  */
 
 import { Project, Experience, Certification, Award, Publication, Service, StatItem } from "./types";
+
+import RRLogo from "./assets/images/WorkLogos/IFS.png"
+import AzpireLogo from "./assets/images/WorkLogos/Azpire.jpg"
+import IFSLogo from "./assets/images/WorkLogos/IFS.png"
+import TSGLogo from "./assets/images/WorkLogos/tsg.png"
+import NTBLogo from "./assets/images/WorkLogos/NTB.jpg"
+
 import AiesecLogo from "../src/assets/images/VolunteerLogos/Aiesec.png";
 import AiesecCSLogo from "../src/assets/images/VolunteerLogos/aiesec-cs.jpg";
 import AiesecIGVPLogo from "../src/assets/images/VolunteerLogos/Aiesec-IGVP.png";
@@ -89,7 +96,8 @@ export const EXPERIENCES: Experience[] = [
   {
     id: "exp-1",
     company: "Freelancing Software & DevOps Engineer",
-    role: "Lead Software & DevOps/SRE Builder",
+    logo: IFSLogo,
+    role: "Software Engineer",
     location: "Remote / Sri Lanka",
     period: "Jan 2024 - Present",
     duration: "2 years 6 months",
@@ -105,6 +113,7 @@ export const EXPERIENCES: Experience[] = [
   {
     id: "exp-2",
     company: "AZpire",
+    logo: AzpireLogo,
     role: "Co-Founder & Lead Engineer",
     location: "Sri Lanka",
     period: "Feb 2025 - Present",
@@ -120,6 +129,7 @@ export const EXPERIENCES: Experience[] = [
   {
     id: "exp-3",
     company: "IFS",
+    logo: IFSLogo,
     role: "Undergraduate Trainee DevOps (SRE Team)",
     location: "Colombo, Sri Lanka",
     period: "Sep 2024 - Mar 2025",
@@ -142,6 +152,7 @@ export const EXPERIENCES: Experience[] = [
   {
     id: "exp-4",
     company: "Third Space Global",
+    logo: TSGLogo,
     role: "Online Maths Tutor",
     location: "Sri Lanka / UK Collaborative",
     period: "Sep 2023 - Jul 2025",
@@ -157,6 +168,7 @@ export const EXPERIENCES: Experience[] = [
   {
     id: "exp-5",
     company: "Nations Trust Bank PLC",
+    logo: NTBLogo,
     role: "Trainee Banking Assistant",
     location: "Western Province, Sri Lanka",
     period: "Dec 2019 - Feb 2021",
@@ -477,46 +489,69 @@ export const SKILL_CATEGORIES = [
       { name: "AWS", level: 90 },
       { name: "Terraform", level: 80 },
       { name: "Gcloud", level: 92 },
-      { name: "Linux", level: 95 }
+      { name: "Linux", level: 95 },
+      { name: "grafana", level: 95 }
     ]
   },
   {
-    name: "Frontend",
+    name: "Frontend/UI",
     skills: [
       { name: "Angular", level: 88 },
       { name: "React", level: 85 },
-      { name: "TypeScript", level: 90 },
-      { name: "Tailwind CSS", level: 95 }
+      { name: "Redux", level: 85 },
+      { name: "nextjs", level: 85 },
+      { name: "reactnative", level: 85 },
+      { name: "vitejs", level: 85 },
+      { name: "materialui", level: 90 },
+      { name: "Tailwind CSS", level: 95 },
+      { name: "shadcnui", level: 95 },
+      { name: "figma", level: 95 }
     ]
   },
   {
     name: "Backend & DBs",
     skills: [
-      { name: "Django REST", level: 86 },
-      { name: "Node.js / Express", level: 88 },
-      { name: "MySQL", level: 90 },
-      { name: "PostgreSQL", level: 85 },
-      { name: "OAuth2 / Security", level: 88 }
+      { name: "Django", level: 86 },
+      { name: "nodejs", level: 88 },
+      { name: "expressjs", level: 90 },
+      { name: "laravel", level: 90 },
+      { name: "mysql", level: 90 },
+      { name: "mongodb", level: 90 },
+      { name: "prisma", level: 90 },
+      { name: "supabase", level: 90 },
+      { name: "PostgreSQL", level: 85 }
     ]
   },
   {
-    name: "Tools & Methodologies",
+    name: "Other Tools & Utilities",
     skills: [
       { name: "Git", level: 95 },
       { name: "Bitbucket", level: 95 },
-      { name: "Postman API", level: 92 },
-      { name: "Cloud Monitoring", level: 88 },
-      { name: "ATS Optimization", level: 85 }
+      { name: "Postman", level: 92 },
+      { name: "vscode", level: 88 },
+      { name: "auth0", level: 85 },
+      { name: "colab", level: 92 },
+      { name: "github", level: 88 },
+      { name: "netlify", level: 85 },
+      { name: "nginx", level: 88 },
+      { name: "notion", level: 85 },
+      { name: "lovable", level: 85 },
+      { name: "microsoft", level: 85 },
+      { name: "slack", level: 85 },
     ]
   },
   {
-    name: "Languages",
+    name: "Languages(Programming and scripting)",
     skills: [
-      { name: "Git", level: 95 },
-      { name: "Bitbucket", level: 95 },
-      { name: "Postman API", level: 92 },
-      { name: "Cloud Monitoring", level: 88 },
-      { name: "ATS Optimization", level: 85 }
+      { name: "html5", level: 95 },
+      { name: "css3", level: 95 },
+      { name: "js", level: 92 },
+      { name: "java", level: 88 },
+      { name: "c#", level: 85 },
+      { name: "php", level: 95 },
+      { name: "python", level: 95 },
+      { name: "c++", level: 92 },
+      { name: "typescript", level: 88 },
     ]
   }
 ];

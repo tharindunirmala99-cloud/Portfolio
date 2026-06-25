@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from "react";
 import { motion } from "motion/react";
 import { SKILL_CATEGORIES } from "../data";
-import { Cloud, Wrench, Layout, Database, CheckCircle, Terminal } from "lucide-react";
+import { Cloud, Wrench, Layout, Database, CheckCircle, Terminal, BookA, Book } from "lucide-react";
 import { TechIcon } from "./TechIcons";
 import { getRandomBlobStyle } from "../utils/blobStyles";
 import StackIcon from "tech-stack-icons";
@@ -15,7 +15,8 @@ export default function Skills() {
     <Cloud className="w-5 h-5 text-blue-500" />,
     <Layout className="w-5 h-5 text-amber-500" />,
     <Database className="w-5 h-5 text-emerald-500" />,
-    <Wrench className="w-5 h-5 text-indigo-500" />
+    <Wrench className="w-5 h-5 text-indigo-500" />,
+    <Book className="w-5 h-5 text-indigo-500" />
   ];
 
   const iconStyles = [
